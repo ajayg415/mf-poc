@@ -1,11 +1,13 @@
 const path = require('path');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const webpack = require("webpack");
+const { ModuleFederationPlugin } = webpack.container;
 
 module.exports = {
   entry: path.resolve(__dirname, 'src', 'index.jsx'),
   mode: 'development',
   output: {
-    publicPath: '/',
+    publicPath: 'auto',
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
     clean: true,
@@ -29,9 +31,32 @@ module.exports = {
     extensions: ['.js', '.jsx'],
   },
   devtool: 'source-map',
+  devServer: {
+    port: 3002,
+    historyApiFallback: true,
+  },
   plugins: [
     new HtmlWebpackPlugin({
       template: "./index.html", 
+    }),
+    new ModuleFederationPlugin({
+      name: "select",
+      filename: "remoteEntry.js",
+      exposes: {
+        "./Select": "./src/App.jsx",
+      },
+      shared: {
+        react: {
+          singleton: true,
+          requiredVersion: '^19.2.3',
+          eager: false
+        },
+        "react-dom": {
+          singleton: true,
+          requiredVersion: '^19.2.3',
+          eager: false
+        },
+      },
     }),
   ],
 }
