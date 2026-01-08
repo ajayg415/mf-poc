@@ -1,0 +1,17 @@
+:root {
+  --bg: #f6fbff;
+  --card: #fff;
+  --accent: #0b78ff;
+  --muted: #6b7280;
+}
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+  margin: 1rem;
+  font-family: Inter, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  background: linear-gradient(180deg, var(--bg), #eaf4ff);
+  color: #0f1724;
+}
