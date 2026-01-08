@@ -1,0 +1,44 @@
+:root {
+  --bg: #f6fbff;
+  --card: #fff;
+  --accent: #0b78ff;
+  --muted: #6b7280;
+}
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: Inter, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  background: linear-gradient(180deg, var(--bg), #eaf4ff);
+  color: #0f1724;
+}
+
+button {
+  background-color: #4f46e5; /* Modern Indigo */
+  color: white;
+  padding: 12px 24px;
+  margin: 1rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  outline: none;
+}
+
+button:hover {
+  background-color: #4338ca;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+button:active {
+  transform: translateY(0px);
+  scale: 0.97;
+}
